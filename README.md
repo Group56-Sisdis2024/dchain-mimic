@@ -38,8 +38,9 @@ In your VM, run a node with the correct configurations with the following comman
 
 ```sh
 git clone https://github.com/Group56-Sisdis2024/dchain-mimic.git
+cd dchain-mimic
 ./generate-keypair.sh # generate new keypair for node
-cd dchain-mimic/node
+cd node
 chmod +x *.sh
 ./start.sh
 ```
