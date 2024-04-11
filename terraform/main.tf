@@ -1,5 +1,4 @@
 provider "google" {
-  project = "sisdis-project-419008"
   region = "us-central1"
   zone = "us-central1-a"
 }
@@ -21,6 +20,10 @@ resource "google_compute_firewall" "allow-ethereum-traffic" {
   }
 
   source_tags = ["dchain-mimic-node"]
+}
+
+resource "google_compute_address" "static" {
+  name = "ipv4-address"
 }
 
 resource "google_compute_instance" "node_instance" {
@@ -61,6 +64,8 @@ resource "google_compute_instance" "node_instance" {
   
   network_interface {
     network = "default"
-    access_config {}
+    access_config {
+      nat_ip = google_compute_address.static.address
+    }
   }
 }
