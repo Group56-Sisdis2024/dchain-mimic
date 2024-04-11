@@ -29,7 +29,7 @@ terraform plan
 terraform apply
 ```
 
-Wait for 15-30 minutes for the VM to initialise itself and for the startup scripts to start installing the necessary resources. Then, create or register an SSH Key for your VM from Compute Engine -> Metadata -> SSH keys. You can then begin to SSH into your VM and setup your node.
+Wait for 15-30 minutes for the VM to initialise itself and for the startup scripts to start installing the necessary resources. Then, create or register an SSH Key for your VM from Compute Engine -> Metadata -> SSH keys. You can then begin to SSH into your VM and setup your node. Verify that the installation script has finished running by checking `/var/log/syslog`. If it is finished, you can proceed with the next step.
 
 
 ### Run a Node
@@ -39,18 +39,21 @@ In your VM, run a node with the correct configurations with the following comman
 ```sh
 git clone https://github.com/Group56-Sisdis2024/dchain-mimic.git
 cd dchain-mimic
+chmod +x generate-keypair.sh
 ./generate-keypair.sh # generate new keypair for node
 cd node
 chmod +x *.sh
 ./start.sh
 ```
 
-Only use `generate-keypair.sh` once unless you want to renew your keypair (you'll lose the old one if you don't back it up).
+Alternatively, you can also start it as a background process with `./start-proc.sh`. It will then output the logs to `out.log`. If you run it as a background process and need to stop it, find the PID using `./find-proc.sh`, then `kill <pid>`.
+
+Only use `generate-keypair.sh` once during setup unless you want to renew your keypair (you'll lose the old one if you don't back it up).
 
 
 ### Connect to Other Nodes
 
-To join the network, you have to connect to other nodes. Notify other nodes of your enode URL so that they can add your node to their allowlist. 
+To join the network, you have to connect to other nodes. Notify other nodes of your enode URL so that they can add your node to their allowlist. You can open a new shell to run these commands aside from your main shell if your current shell is being used to run Besu.
 
 **1. Allowlisting other nodes** 
 
@@ -65,5 +68,5 @@ To add other nodes to your allowlist, use the following script that is located i
 Once you've ensured that both you and another node has had each other allowlisted, you can peer with the other node with the following script.
 
 ```sh
-node-add-peer.sh <enode url>
+./node-add-peer.sh <enode url>
 ```
