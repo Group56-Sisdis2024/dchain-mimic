@@ -55,7 +55,7 @@ Only use `generate-keypair.sh` once during setup unless you want to renew your k
 
 To join the network, you have to connect to other nodes. Notify other nodes of your enode URL so that they can add your node to their allowlist. You can open a new shell to run these commands aside from your main shell if your current shell is being used to run Besu.
 
-**1. Allowlisting other nodes** 
+**1. Allowlist other nodes** 
 
 To add other nodes to your allowlist, use the following script that is located in `./node`.
 
@@ -63,7 +63,7 @@ To add other nodes to your allowlist, use the following script that is located i
 ./node-add-allowlist.sh <enode 1> <enode2> ... <enode-n>
 ```
 
-**2. Allowlisting other nodes** 
+**2. Peer with other nodes** 
 
 Once you've ensured that both you and another node has had each other allowlisted, you can peer with the other node with the following script.
 
