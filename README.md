@@ -7,7 +7,7 @@ This is a group project for 2024 Distributed Systems course (CSGE604154), Facult
 
 ## Contributors
 
-This project is a collaboration between groups 5 and 6 led by Bayu Saktiaji (2206137492).
+This project is a collaboration between groups 5 and 6 led by Bayu Sektiaji (2206137492).
 
 1. Faris Haidar Zuhdi (2006597336) 
 2. Zidan Kharisma Adidarma (2006463881)
