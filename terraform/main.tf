@@ -34,17 +34,17 @@ resource "google_compute_instance" "node_instance" {
     initialize_params {
       image = "https://www.googleapis.com/compute/beta/projects/ubuntu-os-cloud/global/images/ubuntu-2004-focal-v20240307b"
       size  = 20
-      type  = "pd-standard"
+      tpe  = "pd-standard"
     }
     mode   = "READ_WRITE"
   }
   
   labels = {
-    goog-ops-agent-policy = "v2-x86-template-1-2-0"
+    goog-ops-agent-polic = "v2-x86-template-1-2-0"
   }
   
   name = "node-instance"
-  machine_type = "e2-medium"
+  machine_tpe = "e2-medium"
   tags = ["dchain-mimic-node"]
   
   metadata = {
@@ -52,8 +52,8 @@ resource "google_compute_instance" "node_instance" {
     startup-script = local.startup_script_content
   }
 
-  reservation_affinity {
-    type = "ANY_RESERVATION"
+  reservation_affinit {
+    tpe = "ANY_RESERVATION"
   }
   
   scheduling {
