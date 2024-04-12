@@ -29,7 +29,13 @@ terraform plan
 terraform apply
 ```
 
-Wait for 15-30 minutes for the VM to initialise itself and for the startup scripts to start installing the necessary resources. Then, create or register an SSH Key for your VM from Compute Engine -> Metadata -> SSH keys. You can then begin to SSH into your VM and setup your node. Verify that the installation script has finished running by checking `/var/log/syslog`. If it is finished, you can proceed with the next step.
+Wait for 15-30 minutes for the VM to initialise itself and for the startup scripts to start installing the necessary resources. Then, create or register an SSH Key for your VM from Compute Engine -> Metadata -> SSH keys. You can then begin to SSH into your VM and setup your node. Verify that the installation script has finished running by checking `/var/log/syslog`. 
+
+```sh
+cat /var/log/syslog | grep startup-script | tail
+```
+
+If it has finished it will say `google-startup-scripts.service: Succeeded.`, and then you can proceed with the next step.
 
 
 ### Run a Node

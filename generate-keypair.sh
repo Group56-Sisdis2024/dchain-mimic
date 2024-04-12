@@ -13,7 +13,7 @@ echo Public key: $PUBKEY
 
 echo Moving files to node...
 
-mv networkFiles/keys/* node/data/
+mv networkFiles/keys/*/* node/data/
 
 echo Files moved! Your node is now ready with new key pair.
 
