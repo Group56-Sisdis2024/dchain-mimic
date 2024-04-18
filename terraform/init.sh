@@ -34,6 +34,8 @@ update-alternatives --install /usr/bin/python python /usr/bin/python3 10
 wget -P /usr/share https://github.com/hyperledger/besu/releases/download/24.3.0/besu-24.3.0.zip
 unzip /usr/share/besu-24.3.0.zip -d /usr/share
 rm /usr/share/besu-24.3.0.zip
-printf "if [ -f /etc/.bash_aliases ]; then\n\t. /etc/.bash_aliases\nfi" >> /etc/bash.bashrc
+printf "if [ -f /etc/.bash_aliases ]; then\n\t. /etc/.bash_aliases\nfi\n" >> /etc/bash.bashrc
 echo "alias besu=/usr/share/besu-24.3.0/bin/besu" >> /etc/.bash_aliases
 
+# Install Truffle
+npm install -g truffle
